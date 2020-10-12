@@ -2,76 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61e7656e-7417-4343-a2fa-f4ee2f845d00" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../web_test/web_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LL1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/编译原理实验(2).iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/artifacts/idea_space_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../idea-space.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/deep_io/demo/Demo2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/deep_io/demo/Demo3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/deep_io/demo/Demo4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/deep_io/demo/ReceiveThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/deep_io/demo/SendTread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/deep_io/demo/demo1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/deep_io/demo/main.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/file/demo/Demo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/file/demo/main.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/io/demo/Demo2$Demo3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/io/demo/Demo2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/io/demo/Demo3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/io/demo/Demo4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/io/demo/Demo5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/io/demo/Demo6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/io/demo/Demo7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/io/demo/Demo8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/io/demo/FileUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/io/demo/FileUtil1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/idea-space/io/demo/main.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/JDBC/demo/Demo1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/JDBC/demo/dbconfig.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/JDBC/login/login.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/JDBC/login/web/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/JDBC/login/web/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/deep_io/demo/Demo2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/deep_io/demo/Demo3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/deep_io/demo/Demo4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/deep_io/demo/Demo5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/deep_io/demo/demo1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/deep_io/demo/main.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/file/demo/Demo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/file/demo/main.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/internet/demo/TCP_Echo_Bio/EchoClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/internet/demo/TCP_Echo_Bio/EchoSever.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/internet/demo/TCP_Echo_Nio/EchoClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/internet/demo/TCP_Echo_Nio/EchoSever.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/internet/demo/Udp/UDPclient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/internet/demo/Udp/UDPsever.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/internet/demo/main" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/io/demo/Demo2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/io/demo/Demo3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/io/demo/Demo4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/io/demo/Demo5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/io/demo/Demo6.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/io/demo/Demo7.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/io/demo/Demo8.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/io/demo/main.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../编译原理实验一" beforeDir="false" afterPath="$PROJECT_DIR$/../编译原理实验一" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LL1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LL1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,10 +45,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.LL1">
+    <configuration name="Gui" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Gui" />
+      <module name="编译原理实验(2)" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LL1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LL1" />
       <module name="编译原理实验(2)" />
@@ -127,6 +67,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.LL1" />
+        <item itemvalue="Application.Gui" />
       </list>
     </recent_temporary>
   </component>
@@ -154,6 +95,8 @@
       <updated>1602415904558</updated>
       <workItem from="1602415905964" duration="12491000" />
       <workItem from="1602473898875" duration="9756000" />
+      <workItem from="1602499591980" duration="903000" />
+      <workItem from="1602501862622" duration="6617000" />
     </task>
     <servers />
   </component>
@@ -161,9 +104,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="791" y="443" key="FileChooserDialogImpl" timestamp="1602415931675">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="879" y="194" key="#com.intellij.ide.util.MemberChooser" timestamp="1602502366357">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
+    <state x="879" y="194" key="#com.intellij.ide.util.MemberChooser/0.0.1368.872@0.0.1368.872" timestamp="1602502366357" />
+    <state x="528" y="347" key="FileChooserDialogImpl" timestamp="1602501898795">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="528" y="347" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1602501898795" />
     <state x="791" y="443" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1602415931675" />
     <state x="1073" y="654" key="Github.ShareDialog" timestamp="1602415993644">
       <screen x="0" y="0" width="2048" height="1112" />
@@ -173,41 +121,50 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="749" y="261" key="Github.UntrackedFilesDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1602416045596" />
-    <state width="1084" height="407" key="GridCell.Tab.0.bottom" timestamp="1602485213701">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="639" height="281" key="GridCell.Tab.0.bottom" timestamp="1602508490470">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
+    <state width="639" height="281" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1602508490470" />
     <state width="1084" height="407" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1602485213701" />
-    <state width="1084" height="407" key="GridCell.Tab.0.center" timestamp="1602485213701">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="639" height="281" key="GridCell.Tab.0.center" timestamp="1602508490469">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
+    <state width="639" height="281" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1602508490469" />
     <state width="1084" height="407" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1602485213701" />
-    <state width="1084" height="407" key="GridCell.Tab.0.left" timestamp="1602485213701">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="639" height="281" key="GridCell.Tab.0.left" timestamp="1602508490469">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
+    <state width="639" height="281" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1602508490469" />
     <state width="1084" height="407" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1602485213701" />
-    <state width="1084" height="407" key="GridCell.Tab.0.right" timestamp="1602485213701">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="639" height="281" key="GridCell.Tab.0.right" timestamp="1602508490470">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
+    <state width="639" height="281" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1602508490470" />
     <state width="1084" height="407" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1602485213701" />
-    <state width="1084" height="376" key="GridCell.Tab.1.bottom" timestamp="1602483479915">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="639" height="281" key="GridCell.Tab.1.bottom" timestamp="1602508490470">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
+    <state width="639" height="281" key="GridCell.Tab.1.bottom/0.0.1368.872@0.0.1368.872" timestamp="1602508490470" />
     <state width="1084" height="376" key="GridCell.Tab.1.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1602483479915" />
-    <state width="1084" height="376" key="GridCell.Tab.1.center" timestamp="1602483479915">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="639" height="281" key="GridCell.Tab.1.center" timestamp="1602508490470">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
+    <state width="639" height="281" key="GridCell.Tab.1.center/0.0.1368.872@0.0.1368.872" timestamp="1602508490470" />
     <state width="1084" height="376" key="GridCell.Tab.1.center/0.0.2048.1112@0.0.2048.1112" timestamp="1602483479915" />
-    <state width="1084" height="376" key="GridCell.Tab.1.left" timestamp="1602483479915">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="639" height="281" key="GridCell.Tab.1.left" timestamp="1602508490470">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
+    <state width="639" height="281" key="GridCell.Tab.1.left/0.0.1368.872@0.0.1368.872" timestamp="1602508490470" />
     <state width="1084" height="376" key="GridCell.Tab.1.left/0.0.2048.1112@0.0.2048.1112" timestamp="1602483479915" />
-    <state width="1084" height="376" key="GridCell.Tab.1.right" timestamp="1602483479915">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="639" height="281" key="GridCell.Tab.1.right" timestamp="1602508490470">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
+    <state width="639" height="281" key="GridCell.Tab.1.right/0.0.1368.872@0.0.1368.872" timestamp="1602508490470" />
     <state width="1084" height="376" key="GridCell.Tab.1.right/0.0.2048.1112@0.0.2048.1112" timestamp="1602483479915" />
-    <state x="687" y="243" key="search.everywhere.popup" timestamp="1602478141717">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="461" y="192" key="search.everywhere.popup" timestamp="1602505789944">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
+    <state x="461" y="192" key="search.everywhere.popup/0.0.1368.872@0.0.1368.872" timestamp="1602505789944" />
     <state x="687" y="243" key="search.everywhere.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1602478141717" />
   </component>
 </project>

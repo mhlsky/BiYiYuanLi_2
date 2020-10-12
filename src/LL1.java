@@ -1,3 +1,5 @@
+import javax.swing.*;
+import java.awt.*;
 import java.util.*;
 /**
  * class:
@@ -22,6 +24,7 @@ public class LL1 {
     static int index = 0;//输入字符指针
     static String action ="";
     public static void main(String[] args) {
+       // new Gui("LL(1)语法分析");
         dividechar();
         First();
         for (Character c : VnSet) {
@@ -100,21 +103,27 @@ public class LL1 {
                 set.add('ε');
             else{
                 int i = 0;
+                Boolean flag = false;
+                int tag =0 ;
                 while (i < str.length()) {
                     char tn = str.charAt(i);
                     //递归
                     getfisrst(tn);
                     HashSet<Character> tvSet = FirstSet.get(tn);
+                    //-------------------------------
                     // 将其first集加入左部
                     for (Character tmp : tvSet)
-                        set.add(tmp);
+                        if(tmp!='ε')
+                            set.add(tmp);
                     // 若包含空串 处理下一个符号
-                    if (tvSet.contains('~'))
+                    if (tvSet.contains('ε'))
                         i++;
                         // 否则退出 处理下一个产生式
                     else
                         break;
                 }
+                if(i==str.length()-1)
+                    set.add('ε');
             }
         }
         FirstSet.put(ch,set);
@@ -185,9 +194,8 @@ public class LL1 {
                     //若β不存在   followA 加入 followB
                     //若β存在，把β的非空first集  加入followB
                     //若β存在  且 first(β)包含空串   followA 加入 followB
-
                     //若β存在
-                    if (s.length() - i - 1 > 0) {
+                    if (s.length() - 1- i > 0) {
                         String right = s.substring(i + 1);
                         //非空first集 加入 followB
                         HashSet<Character> setF = null;
@@ -389,5 +397,44 @@ public class LL1 {
             System.out.println();
         }
         System.out.println("**********LL1预测分析表********");
+    }
+}
+
+class Gui extends JFrame {
+
+    public Gui(String title) throws HeadlessException {
+        super(title);
+        setSize(550,500);
+        setResizable(false);
+
+        JPanel contentPanel = new JPanel();
+        contentPanel.setLayout(null);
+
+
+        JButton btnLL1 = new JButton("LL(1)分析");
+        JTextField input = new JTextField(8);
+        JLabel label = new JLabel("输入串:");
+        JTextField firstTXT = new JTextField(8);
+        JTextField followTXT = new JTextField(8) ;
+
+        String[] columnNames = { "步骤", "分析栈", "剩余输入串", "所用产生式", "动作" };
+        String[][] row = {{"11"},{"22"},{"33"},{"44"},{"55"}};
+        JTable table = new JTable(row,columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+
+        contentPanel.add(btnLL1);
+        contentPanel.add(input);
+        contentPanel.add(label);
+        contentPanel.add(firstTXT);
+        contentPanel.add(scrollPane);
+        contentPanel.add(followTXT);
+
+        label.setBounds(5,5,80,20);
+        input.setBounds(90,5,100,20);
+        this.add(contentPanel);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
     }
 }
