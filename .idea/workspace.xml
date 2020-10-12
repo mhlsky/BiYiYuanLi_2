@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="61e7656e-7417-4343-a2fa-f4ee2f845d00" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../web_test/web_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LL1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/编译原理实验(2).iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/编译原理实验(2)/LL1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/artifacts/idea_space_jar.xml" beforeDir="false" />
@@ -71,6 +63,8 @@
       <change beforePath="$PROJECT_DIR$/../src/io/demo/Demo7.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/io/demo/Demo8.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/io/demo/main.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LL1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LL1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../编译原理实验一" beforeDir="false" afterPath="$PROJECT_DIR$/../编译原理实验一" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +110,14 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Gui">
+    <configuration name="Gui" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Gui" />
+      <module name="编译原理实验(2)" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LL1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LL1" />
       <module name="编译原理实验(2)" />
@@ -126,6 +127,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Gui" />
         <item itemvalue="Application.LL1" />
       </list>
     </recent_temporary>
@@ -153,14 +155,32 @@
       <option name="presentableId" value="Default" />
       <updated>1602415904558</updated>
       <workItem from="1602415905964" duration="12491000" />
-      <workItem from="1602473898875" duration="9756000" />
+      <workItem from="1602473898875" duration="10100000" />
+      <workItem from="1602485487564" duration="116000" />
+      <workItem from="1602510977462" duration="17004000" />
     </task>
+    <task id="LOCAL-00001" summary="逻辑部分完成，待制作GUI">
+      <created>1602485315399</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602485315399</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="逻辑部分完成，待制作GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="逻辑部分完成，待制作GUI" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="125" y="153" key="CommitChangelistDialog2" timestamp="1602485314607">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="125" y="153" key="CommitChangelistDialog2/0.0.2048.1112@0.0.2048.1112" timestamp="1602485314607" />
     <state x="791" y="443" key="FileChooserDialogImpl" timestamp="1602415931675">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -173,38 +193,46 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="749" y="261" key="Github.UntrackedFilesDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1602416045596" />
-    <state width="1084" height="407" key="GridCell.Tab.0.bottom" timestamp="1602485213701">
+    <state width="1086" height="435" key="GridCell.Tab.0.bottom" timestamp="1602531879585">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1084" height="407" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1602485213701" />
-    <state width="1084" height="407" key="GridCell.Tab.0.center" timestamp="1602485213701">
+    <state width="1086" height="435" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1602531879585" />
+    <state width="1086" height="435" key="GridCell.Tab.0.center" timestamp="1602531879585">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1084" height="407" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1602485213701" />
-    <state width="1084" height="407" key="GridCell.Tab.0.left" timestamp="1602485213701">
+    <state width="1086" height="435" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1602531879585" />
+    <state width="1086" height="435" key="GridCell.Tab.0.left" timestamp="1602531879585">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1084" height="407" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1602485213701" />
-    <state width="1084" height="407" key="GridCell.Tab.0.right" timestamp="1602485213701">
+    <state width="1086" height="435" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1602531879585" />
+    <state width="1086" height="435" key="GridCell.Tab.0.right" timestamp="1602531879585">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1084" height="407" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1602485213701" />
-    <state width="1084" height="376" key="GridCell.Tab.1.bottom" timestamp="1602483479915">
+    <state width="1086" height="435" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1602531879585" />
+    <state width="2005" height="285" key="GridCell.Tab.1.bottom" timestamp="1602527275244">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1084" height="376" key="GridCell.Tab.1.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1602483479915" />
-    <state width="1084" height="376" key="GridCell.Tab.1.center" timestamp="1602483479915">
+    <state width="2005" height="285" key="GridCell.Tab.1.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1602527275244" />
+    <state width="2005" height="285" key="GridCell.Tab.1.center" timestamp="1602527275244">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1084" height="376" key="GridCell.Tab.1.center/0.0.2048.1112@0.0.2048.1112" timestamp="1602483479915" />
-    <state width="1084" height="376" key="GridCell.Tab.1.left" timestamp="1602483479915">
+    <state width="2005" height="285" key="GridCell.Tab.1.center/0.0.2048.1112@0.0.2048.1112" timestamp="1602527275244" />
+    <state width="2005" height="285" key="GridCell.Tab.1.left" timestamp="1602527275244">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1084" height="376" key="GridCell.Tab.1.left/0.0.2048.1112@0.0.2048.1112" timestamp="1602483479915" />
-    <state width="1084" height="376" key="GridCell.Tab.1.right" timestamp="1602483479915">
+    <state width="2005" height="285" key="GridCell.Tab.1.left/0.0.2048.1112@0.0.2048.1112" timestamp="1602527275244" />
+    <state width="2005" height="285" key="GridCell.Tab.1.right" timestamp="1602527275244">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1084" height="376" key="GridCell.Tab.1.right/0.0.2048.1112@0.0.2048.1112" timestamp="1602483479915" />
+    <state width="2005" height="285" key="GridCell.Tab.1.right/0.0.2048.1112@0.0.2048.1112" timestamp="1602527275244" />
+    <state x="158" y="292" key="Vcs.Push.Dialog.v2" timestamp="1602485386707">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="158" y="292" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1602485386707" />
+    <state x="993" y="266" key="run.anything.popup" timestamp="1602527242491">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="993" y="266" key="run.anything.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1602527242491" />
     <state x="687" y="243" key="search.everywhere.popup" timestamp="1602478141717">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

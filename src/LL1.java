@@ -1,3 +1,8 @@
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 /**
  * class:
@@ -21,20 +26,20 @@ public class LL1 {
     static Character start = 'E';
     static int index = 0;//输入字符指针
     static String action ="";
-    public static void main(String[] args) {
-        dividechar();
-        First();
-        for (Character c : VnSet) {
-            ArrayList<String> l = production.get(c);
-            for (String s : l)
-               getFirstX(s);
-        }
-        Follow();
-        creatTable();
-        ouput();
-        processLL1();
-
-    }
+//    public static void main(String[] args) {
+//        dividechar();
+//        First();
+//        for (Character c : VnSet) {
+//            ArrayList<String> l = production.get(c);
+//            for (String s : l)
+//               getFirstX(s);
+//        }
+//        Follow();
+//        creatTable();
+//        ouput();
+//        processLL1();
+//
+//    }
     /**
      *调用处理函数初始化相关静态变量
      */
@@ -61,13 +66,17 @@ public class LL1 {
             VnSet.add(Vch);
         }
         //寻找终结符
-        for (String str:grammarStr
+        for (Character ch:VnSet
             ){
-            for (Character ch: str.toCharArray()
-            ) {
-                if( !VnSet.contains(ch) )
-                    VtSet.add(ch);
+            for (String str : production.get(ch)
+                 ) {
+                for (Character c: str.toCharArray()
+                ) {
+                    if( !VnSet.contains(c) )
+                        VtSet.add(c);
+                }
             }
+
         }
 
     }
@@ -96,9 +105,6 @@ public class LL1 {
         //ch为vn
         for (String str:ch_production
              ) {
-            if(str=="ε")
-                set.add('ε');
-            else{
                 int i = 0;
                 while (i < str.length()) {
                     char tn = str.charAt(i);
@@ -106,16 +112,19 @@ public class LL1 {
                     getfisrst(tn);
                     HashSet<Character> tvSet = FirstSet.get(tn);
                     // 将其first集加入左部
-                    for (Character tmp : tvSet)
-                        set.add(tmp);
+                    for (Character tmp : tvSet) {
+                        if (tmp != 'ε')
+                            set.add(tmp);
+                    }
                     // 若包含空串 处理下一个符号
-                    if (tvSet.contains('~'))
+                    if (tvSet.contains('ε'))
                         i++;
                         // 否则退出 处理下一个产生式
                     else
                         break;
                 }
-            }
+                if(i==str.length())
+                    set.add('ε');
         }
         FirstSet.put(ch,set);
     }
@@ -129,6 +138,8 @@ public class LL1 {
             int i = 0;
             while (i < s.length()) {
                 char tn = s.charAt(i);
+                if(!FirstSet.containsKey(tn))
+                    getfisrst(tn);
                 HashSet<Character> tvSet = FirstSet.get(tn);
                 // 将其非空 first集加入左部
                 for (Character tmp : tvSet)
@@ -153,10 +164,13 @@ public class LL1 {
      * 生成FOLLOW集
      */
     static void Follow(){
-        for (Character ch:VnSet
-             ) {
-            getFollow(ch);
+        for (int i = 0; i <3 ; i++) {
+            for (Character ch:VnSet
+            ) {
+                getFollow(ch);
+            }
         }
+
     }
     static void getFollow(char c){
         ArrayList<String> list = production.get(c);
@@ -204,12 +218,12 @@ public class LL1 {
                         }
                         HashSet<Character> setX = FollowSet.containsKey(tn) ? FollowSet.get(tn) : new HashSet<Character>();
                         for (Character var : setF)
-                            if (var != '~')
+                            if (var != 'ε')
                                 setX.add(var);
                         FollowSet.put(tn, setX);
 
                         // 若first(β)包含空串   followA 加入 followB
-                        if(setF.contains('~')){
+                        if(setF.contains('ε')){
                             if(tn != c){
                                 HashSet<Character> setB =FollowSet.containsKey(tn) ? FollowSet.get(tn) : new HashSet<Character>();
                                 for (Character var : setA)
@@ -300,8 +314,9 @@ public class LL1 {
                 action = "match " + stack.peek();
                 stack.pop();
                 index++;
-            } else if (VtSet.contains(X))
-                return;
+            }
+//            }else if (VtSet.contains(X))
+//                return;
             else if (find(X, a).equals("error")){
                 boolean flag = false;
                 if(FirstSet.get(X).contains('ε')){
@@ -316,11 +331,11 @@ public class LL1 {
                 }
 
             }
-
             else if (find(X, a).equals("ε")) {
                 stack.pop();
                 action = X + "->ε";
-            } else {
+            }
+            else {
                 String str = find(X, a);
                 if (str != "") {
                     action = X + "->" + str;
@@ -328,7 +343,8 @@ public class LL1 {
                     int len = str.length();
                     for (int i = len - 1; i >= 0; i--)
                         stack.push(str.charAt(i));
-                } else {
+                }
+                else {
                     System.out.println("error at '" + inStr.charAt(index) + " in " + index);
                     return;
                 }
@@ -390,4 +406,130 @@ public class LL1 {
         }
         System.out.println("**********LL1预测分析表********");
     }
+}
+class Gui extends JFrame {
+    static JButton btnLL1 = new JButton("LL(1)分析");
+    static JTextField input = new JTextField("i+i*i#",8);
+    static JLabel label = new JLabel("输入串:");
+    static JLabel first = new JLabel("FIRST:");
+    static JLabel follow = new JLabel("FOLLOW:");
+    static JLabel tit = new JLabel("---------------      LL(1)单步     -------------");
+    static JPanel contentPanel = new JPanel();
+
+    static Vector row= new Vector();;
+    static Vector row2= new Vector();
+    static Vector row3= new Vector();
+    static Vector columnNames2 = new Vector() ;
+    static Vector columnNames1 = new Vector() ;
+    static JTable table3;
+    static JTable table2;
+    static JTable table;
+
+    public static void main(String[] args) {
+        new Gui("LL1");
+    }
+    public Gui(String title) throws HeadlessException {
+
+        super(title);
+        setSize(550,500);
+        setResizable(false);
+
+        contentPanel.setLayout(null);
+        columnNames1.add("步骤");
+        columnNames1.add("分析栈");
+        columnNames1.add( "剩余输入串");
+        columnNames1.add("所用产生式");
+        columnNames1.add("动作");
+        table = new JTable(row,columnNames1);
+        JScrollPane scrollPane1 = new JScrollPane(table);
+
+
+
+        columnNames2.add("非终结符");
+        columnNames2.add("结果");
+        table2 = new JTable(row2,columnNames2);
+        JScrollPane scrollPane2 = new JScrollPane(table2);
+        table3 = new JTable(row3,columnNames2);
+        JScrollPane scrollPane3 = new JScrollPane(table3);
+        contentPanel.add(btnLL1);
+        contentPanel.add(input);
+        contentPanel.add(label);
+        contentPanel.add(first);
+        contentPanel.add(follow);
+        contentPanel.add(scrollPane1);
+        contentPanel.add(scrollPane2);
+        contentPanel.add(scrollPane3);
+        contentPanel.add(tit);
+
+        label.setBounds(5,5,110,30);
+        input.setBounds(70,8,100,25);
+        btnLL1.setBounds(180,8,100,25);
+        first.setBounds(5,40,110,30);
+        follow.setBounds(280,40,110,30);
+        tit.setBounds(150,180,300,30);
+        scrollPane1.setBounds(5,220,520,200);
+        scrollPane2.setBounds(5,70,250,100);
+        scrollPane3.setBounds(280,70,250,100);
+        btnLL1.addActionListener(new Listener());
+
+        this.add(contentPanel);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
+
+    class Listener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            if(actionEvent.getSource()==btnLL1){
+                String in = input.getText();
+                LL1.inStr = in;
+                LL1.dividechar();
+                LL1.First();
+
+                for (Character ch:LL1.VnSet
+                     ) {
+                    HashSet<Character> firset = LL1.FirstSet.get(ch);
+                    String token = "";
+                    for (Character c:firset
+                         ) {
+                        token+=c;
+                    }
+                    Vector vc = new Vector();
+                    vc.add(ch);
+                    vc.add(token);
+                    ((DefaultTableModel)Gui.table2.getModel()).addRow(vc);
+                }
+                for (Character c : LL1.VnSet) {
+                    ArrayList<String> l = LL1.production.get(c);
+                    for (String s : l)
+                        LL1.getFirstX(s);
+                }
+                LL1.Follow();
+                for (Character chr:LL1.VnSet
+                ) {
+                    HashSet<Character> firset = LL1.FollowSet.get(chr);
+                    String token1 = "";
+                    for (Character c:firset
+                    ) {
+                        token1+=c;
+                    }
+                    Vector vc1 = new Vector();
+                    vc1.add(chr);
+                    vc1.add(token1);
+                    ((DefaultTableModel)Gui.table3.getModel()).addRow(vc1);
+                }
+                LL1.creatTable();
+                LL1.processLL1();
+
+
+
+
+
+
+            }
+        }
+    }
+
 }
