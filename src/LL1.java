@@ -26,6 +26,7 @@ public class LL1 {
     static Character start = 'E';
     static int index = 0;//输入字符指针
     static String action ="";
+    static ArrayList<Vector>  stepList = new ArrayList<>();
 //    public static void main(String[] args) {
 //        dividechar();
 //        First();
@@ -300,17 +301,39 @@ public class LL1 {
                 }
         }
     }
+    static String getStack(){
+        String str ="";
+        for (Character ch : stack
+             ) {
+            str+=ch;
+        }
+        return str;
+    }
 
     static void processLL1(){
         System.out.println("****************LL分析过程**********");
         System.out.println("               Stack           Input     Action");
         stack.push('#');
         stack.push('E');
+        Vector v = new Vector();
+        v.add(stepList.size()+1);
+        v.add(getStack());
+        v.add(inStr.substring(index));
+        v.add("");
+        v.add("");
+        stepList.add(v);
         displayLL();
         char X = stack.peek();
         while (X != '#') {
             char a = inStr.charAt(index);
             if (X == a) {
+                Vector vc = new Vector();
+                vc.add(stepList.size()+1);
+                vc.add(getStack());
+                vc.add(inStr.substring(index));
+                vc.add("");
+                vc.add("GETNEXT(I)");
+                stepList.add(vc);
                 action = "match " + stack.peek();
                 stack.pop();
                 index++;
@@ -320,12 +343,26 @@ public class LL1 {
             else if (find(X, a).equals("error")){
                 boolean flag = false;
                 if(FirstSet.get(X).contains('ε')){
+                    Vector vc = new Vector();
+                    vc.add(stepList.size()+1);
+                    vc.add(getStack());
+                    vc.add(inStr.substring(index));
+                    vc.add(X+"->ε");
+                    vc.add("POP");
+                    stepList.add(vc);
                     action = X+"->ε";
                     stack.pop();
                     flag = true;
                 }
                 if(!flag){
                     action="error";
+                    Vector vc = new Vector();
+                    vc.add(stepList.size()+1);
+                    vc.add(getStack());
+                    vc.add(inStr.substring(index));
+                    vc.add("");
+                    vc.add("ERROR");
+                    stepList.add(vc);
                     displayLL();
                     return;
                 }
@@ -334,6 +371,13 @@ public class LL1 {
             else if (find(X, a).equals("ε")) {
                 stack.pop();
                 action = X + "->ε";
+                Vector vc = new Vector();
+                vc.add(stepList.size()+1);
+                vc.add(getStack());
+                vc.add(inStr.substring(index));
+                vc.add(X+"->ε");
+                vc.add("POP");
+                stepList.add(vc);
             }
             else {
                 String str = find(X, a);
@@ -341,8 +385,19 @@ public class LL1 {
                     action = X + "->" + str;
                     stack.pop();
                     int len = str.length();
-                    for (int i = len - 1; i >= 0; i--)
+                    String pushStr="";
+                    for (int i = len - 1; i >= 0; i--){
                         stack.push(str.charAt(i));
+                        pushStr+=str.charAt(i);
+                    }
+                    Vector vc = new Vector();
+                    vc.add(stepList.size()+1);
+                    vc.add(getStack());
+                    vc.add(inStr.substring(index));
+                    vc.add(X+"->"+str);
+                    vc.add("POP,PUSH("+pushStr+")");
+                    stepList.add(vc);
+
                 }
                 else {
                     System.out.println("error at '" + inStr.charAt(index) + " in " + index);
@@ -482,6 +537,7 @@ class Gui extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
+
             if(actionEvent.getSource()==btnLL1){
                 String in = input.getText();
                 LL1.inStr = in;
@@ -523,7 +579,10 @@ class Gui extends JFrame {
                 LL1.creatTable();
                 LL1.processLL1();
 
-
+                for (Vector vc2: LL1.stepList
+                     ) {
+                    ((DefaultTableModel)Gui.table.getModel()).addRow(vc2);
+                }
 
 
 
