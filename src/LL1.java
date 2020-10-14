@@ -9,7 +9,7 @@ import java.util.*;
  * --LL1:
  *      实现LL(1)分析,构造分析预测程序（FIRST集-->FOLLOW集-->分析预测表-->stack预测分析）
  * --Gui:
- *      读取输入串，展示分析预测步骤
+ *      读取输入串，桌面程序展示分析预测步骤
  */
 
 public class LL1 {
@@ -26,14 +26,14 @@ public class LL1 {
     static Character start = 'E';
     static int index = 0;//输入字符指针
     static String action ="";
-    static ArrayList<Vector>  stepList = new ArrayList<>();
+    static ArrayList<Vector>  stepList = new ArrayList<>();//与LL（1）无关，可不关心，为GUI记录了stack每一步的变化
 //    public static void main(String[] args) {
 //        dividechar();
 //        First();
 //        for (Character c : VnSet) {
 //            ArrayList<String> l = production.get(c);
 //            for (String s : l)
-//               getFirstX(s);
+//                getFirstX(s);
 //        }
 //        Follow();
 //        creatTable();
@@ -41,26 +41,21 @@ public class LL1 {
 //        processLL1();
 //
 //    }
-    /**
-     *调用处理函数初始化相关静态变量
-     */
-    LL1(){
 
-    }
     /**
      * 生成产生式Map(production)，划分终结符（vt）与非终结符（vn）
      */
     static void dividechar(){
         //生成产生式Map(production)
         for (String str:grammarStr
-             ) {
+        ) {
             //将“|”相连的产生式分开
             String[] strings = str.split("->")[1].split("\\|");
             //非终结符
             char Vch = str.charAt(0);
             ArrayList<String> list = production.containsKey(Vch) ? production.get(Vch) : new ArrayList<String>();
             for (String S:strings
-                 ) {
+            ) {
                 list.add(S);
             }
             production.put(str.charAt(0),list);
@@ -68,9 +63,9 @@ public class LL1 {
         }
         //寻找终结符
         for (Character ch:VnSet
-            ){
+        ){
             for (String str : production.get(ch)
-                 ) {
+            ) {
                 for (Character c: str.toCharArray()
                 ) {
                     if( !VnSet.contains(c) )
@@ -87,7 +82,7 @@ public class LL1 {
     static void First(){
         //遍历求每一个非终结符vn的first集
         for (Character vn: VnSet
-             ) {
+        ) {
             getfisrst(vn);
         }
     }
@@ -105,27 +100,27 @@ public class LL1 {
         }
         //ch为vn
         for (String str:ch_production
-             ) {
-                int i = 0;
-                while (i < str.length()) {
-                    char tn = str.charAt(i);
-                    //递归
-                    getfisrst(tn);
-                    HashSet<Character> tvSet = FirstSet.get(tn);
-                    // 将其first集加入左部
-                    for (Character tmp : tvSet) {
-                        if (tmp != 'ε')
-                            set.add(tmp);
-                    }
-                    // 若包含空串 处理下一个符号
-                    if (tvSet.contains('ε'))
-                        i++;
-                        // 否则退出 处理下一个产生式
-                    else
-                        break;
+        ) {
+            int i = 0;
+            while (i < str.length()) {
+                char tn = str.charAt(i);
+                //递归
+                getfisrst(tn);
+                HashSet<Character> tvSet = FirstSet.get(tn);
+                // 将其first集加入左部
+                for (Character tmp : tvSet) {
+                    if (tmp != 'ε')
+                        set.add(tmp);
                 }
-                if(i==str.length())
-                    set.add('ε');
+                // 若包含空串 处理下一个符号
+                if (tvSet.contains('ε'))
+                    i++;
+                    // 否则退出 处理下一个产生式
+                else
+                    break;
+            }
+            if(i==str.length())
+                set.add('ε');
         }
         FirstSet.put(ch,set);
     }
@@ -134,30 +129,30 @@ public class LL1 {
      */
     static void getFirstX(  String s) {
 
-            HashSet<Character> set = (FirstSetX.containsKey(s))? FirstSetX.get(s) : new HashSet<Character>();
-            // 从左往右扫描该式
-            int i = 0;
-            while (i < s.length()) {
-                char tn = s.charAt(i);
-                if(!FirstSet.containsKey(tn))
-                    getfisrst(tn);
-                HashSet<Character> tvSet = FirstSet.get(tn);
-                // 将其非空 first集加入左部
-                for (Character tmp : tvSet)
-                    if(tmp != 'ε')
-                        set.add(tmp);
-                // 若包含空串 处理下一个符号
-                if (tvSet.contains('ε'))
-                    i++;
-                    // 否则结束
-                else
-                    break;
-                // 到了尾部 即所有符号的first集都包含空串 把空串加入
-                if (i == s.length()) {
-                    set.add('ε');
-                }
+        HashSet<Character> set = (FirstSetX.containsKey(s))? FirstSetX.get(s) : new HashSet<Character>();
+        // 从左往右扫描该式
+        int i = 0;
+        while (i < s.length()) {
+            char tn = s.charAt(i);
+            if(!FirstSet.containsKey(tn))
+                getfisrst(tn);
+            HashSet<Character> tvSet = FirstSet.get(tn);
+            // 将其非空 first集加入左部
+            for (Character tmp : tvSet)
+                if(tmp != 'ε')
+                    set.add(tmp);
+            // 若包含空串 处理下一个符号
+            if (tvSet.contains('ε'))
+                i++;
+                // 否则结束
+            else
+                break;
+            // 到了尾部 即所有符号的first集都包含空串 把空串加入
+            if (i == s.length()) {
+                set.add('ε');
             }
-            FirstSetX.put(s, set);
+        }
+        FirstSetX.put(s, set);
 
 
     }
@@ -165,6 +160,7 @@ public class LL1 {
      * 生成FOLLOW集
      */
     static void Follow(){
+        //此处我多循环了几次，合理的方法应该是看每一个非终结符的follow集师傅增加，不增加即可停止循环。
         for (int i = 0; i <3 ; i++) {
             for (Character ch:VnSet
             ) {
@@ -175,7 +171,7 @@ public class LL1 {
     }
     static void getFollow(char c){
         ArrayList<String> list = production.get(c);
-            HashSet<Character> setA = FollowSet.containsKey(c) ? FollowSet.get(c) : new HashSet<Character>();
+        HashSet<Character> setA = FollowSet.containsKey(c) ? FollowSet.get(c) : new HashSet<Character>();
         //如果是开始符 添加 #
         if (c == start) {
             setA.add('#');
@@ -301,68 +297,67 @@ public class LL1 {
                 }
         }
     }
+
+    /**
+     * 返回当前栈内容的字符串，与LL(1)无关，为GUI提供字符串
+     *
+     */
     static String getStack(){
         String str ="";
         for (Character ch : stack
-             ) {
+        ) {
             str+=ch;
         }
         return str;
     }
 
+    /**
+     * 与LL（1）无关，为GUI的表格所需的setpList,提供一行数据
+     */
+    static void addRowToList(String production,String action){
+        Vector v = new Vector();
+        v.add(stepList.size()+1);
+        v.add(getStack());
+        v.add(inStr.substring(index));
+        v.add(production);
+        v.add(action);
+        stepList.add(v);
+    }
+
+    /**
+     * 执行LL1栈分析
+     */
     static void processLL1(){
         System.out.println("****************LL分析过程**********");
         System.out.println("               Stack           Input     Action");
         stack.push('#');
         stack.push('E');
-        Vector v = new Vector();
-        v.add(stepList.size()+1);
-        v.add(getStack());
-        v.add(inStr.substring(index));
-        v.add("");
-        v.add("");
-        stepList.add(v);
+        addRowToList("","");//GUI数据，可不关心
         displayLL();
         char X = stack.peek();
         while (X != '#') {
             char a = inStr.charAt(index);
             if (X == a) {
-                Vector vc = new Vector();
-                vc.add(stepList.size()+1);
-                vc.add(getStack());
-                vc.add(inStr.substring(index));
-                vc.add("");
-                vc.add("GETNEXT(I)");
-                stepList.add(vc);
                 action = "match " + stack.peek();
                 stack.pop();
                 index++;
+                addRowToList("","POP,GETNEXT(I)");//GUI数据，可不关心
+
             }
 //            }else if (VtSet.contains(X))
 //                return;
             else if (find(X, a).equals("error")){
                 boolean flag = false;
                 if(FirstSet.get(X).contains('ε')){
-                    Vector vc = new Vector();
-                    vc.add(stepList.size()+1);
-                    vc.add(getStack());
-                    vc.add(inStr.substring(index));
-                    vc.add(X+"->ε");
-                    vc.add("POP");
-                    stepList.add(vc);
+
+                    addRowToList(X+"->ε","POP");//GUI数据，可不关心
                     action = X+"->ε";
                     stack.pop();
                     flag = true;
                 }
                 if(!flag){
                     action="error";
-                    Vector vc = new Vector();
-                    vc.add(stepList.size()+1);
-                    vc.add(getStack());
-                    vc.add(inStr.substring(index));
-                    vc.add("");
-                    vc.add("ERROR");
-                    stepList.add(vc);
+                    addRowToList("","ERROR");//GUI数据，可不关心
                     displayLL();
                     return;
                 }
@@ -371,13 +366,7 @@ public class LL1 {
             else if (find(X, a).equals("ε")) {
                 stack.pop();
                 action = X + "->ε";
-                Vector vc = new Vector();
-                vc.add(stepList.size()+1);
-                vc.add(getStack());
-                vc.add(inStr.substring(index));
-                vc.add(X+"->ε");
-                vc.add("POP");
-                stepList.add(vc);
+                addRowToList(action,"POP");//GUI数据，可不关心
             }
             else {
                 String str = find(X, a);
@@ -390,14 +379,7 @@ public class LL1 {
                         stack.push(str.charAt(i));
                         pushStr+=str.charAt(i);
                     }
-                    Vector vc = new Vector();
-                    vc.add(stepList.size()+1);
-                    vc.add(getStack());
-                    vc.add(inStr.substring(index));
-                    vc.add(X+"->"+str);
-                    vc.add("POP,PUSH("+pushStr+")");
-                    stepList.add(vc);
-
+                    addRowToList(action,"POP,PUSH("+pushStr+")");//GUI数据，可不关心
                 }
                 else {
                     System.out.println("error at '" + inStr.charAt(index) + " in " + index);
@@ -410,6 +392,13 @@ public class LL1 {
         System.out.println("analyze LL1 successfully");
         System.out.println("****************LL分析过程**********");
     }
+
+    /**
+     *
+     * @param X 非终结符
+     * @param a 终结符
+     * @return  预测分析表中对应内容
+     */
     static String find(char X, char a) {
         for (int i = 0; i < VnSet.size() + 1; i++) {
             if (table[i][0].charAt(0) == X)
@@ -421,14 +410,16 @@ public class LL1 {
         return "";
     }
     static void displayLL() {
-        // 输出 LL1
+        // 输出 LL1单步处理
         Stack<Character> s = stack;
         System.out.printf("%23s", s);
         System.out.printf("%13s", inStr.substring(index));
         System.out.printf("%10s", action);
         System.out.println();
     }
-
+    /**
+     * 打印first.follow集，预测分析表
+     */
     static void ouput() {
         System.out.println("*********first集********");
         for (Character c : VnSet) {
@@ -480,7 +471,7 @@ class Gui extends JFrame {
     static JTable table2;
     static JTable table;
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         new Gui("LL1");
     }
     public Gui(String title) throws HeadlessException {
@@ -545,11 +536,11 @@ class Gui extends JFrame {
                 LL1.First();
 
                 for (Character ch:LL1.VnSet
-                     ) {
+                ) {
                     HashSet<Character> firset = LL1.FirstSet.get(ch);
                     String token = "";
                     for (Character c:firset
-                         ) {
+                    ) {
                         token+=c;
                     }
                     Vector vc = new Vector();
@@ -580,7 +571,7 @@ class Gui extends JFrame {
                 LL1.processLL1();
 
                 for (Vector vc2: LL1.stepList
-                     ) {
+                ) {
                     ((DefaultTableModel)Gui.table.getModel()).addRow(vc2);
                 }
 
